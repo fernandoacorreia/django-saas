@@ -5,10 +5,11 @@
 django-saas documentation
 =========================
 
-Contents:
-
 .. toctree::
    :maxdepth: 2
+
+   introduction
+   design
 
 Indices and tables
 ==================
