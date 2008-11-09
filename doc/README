@@ -1,1 +1,6 @@
-Documentation
+Documentation.
+
+Written using Sphinx.
+
+"make html" will generate the docs inside "build/html".
+
