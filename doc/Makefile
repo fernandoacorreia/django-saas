@@ -24,12 +24,13 @@ help:
 
 clean:
 	-rm -rf build/*
+	-rm -rf ../web/doc/*
 
 html:
-	mkdir -p build/html build/doctrees
-	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) build/html
+	mkdir -p ../web/doc build/doctrees
+	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) ../web/doc
 	@echo
-	@echo "Build finished. The HTML pages are in build/html."
+	@echo "Build finished. The HTML pages are in ../web/doc."
 
 pickle:
 	mkdir -p build/pickle build/doctrees

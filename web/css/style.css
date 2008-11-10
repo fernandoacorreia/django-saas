@@ -1,0 +1,3 @@
+/* Disable HTTP link icons */
+a[href^="http:"],
+a[href^="http:"]:visited { background:none; padding:0; margin:0; }
