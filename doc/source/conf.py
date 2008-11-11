@@ -35,7 +35,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General substitutions.
-project = u'django-saas'
+project = u'Django SaaS'
 copyright = u'2008, Fernando Correia'
 
 # The default replacements for |version| and |release|, also used in various
@@ -157,7 +157,7 @@ htmlhelp_basename = 'django-saasdoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, document class [howto/manual]).
 latex_documents = [
-  ('index', 'django-saas.tex', u'django-saas Documentation',
+  ('index', 'django-saas.tex', u'Django SaaS Documentation',
    u'Fernando Correia', 'manual'),
 ]
 
