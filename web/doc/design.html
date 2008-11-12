@@ -45,38 +45,46 @@
   
   <div class="section" id="design">
 <h1>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h1>
-<p>TODO: Document project design.</p>
 <div class="section" id="architecture">
 <h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
-<p>TODO: Complete architecture definition.</p>
-<ul class="simple">
-<li>Integrate with standard Django user and authentication modules.</li>
-<li>Integrate with a Pinax website.</li>
-<li>Integrate with a billing application like Satchmo.</li>
-</ul>
+<p><em>Note:</em> These are initial thoughts about the architecture. It will be detailed
+further during the initial iterations.</p>
+<p>The project is implemented as a pluggable Django application that implements
+the use cases.</p>
+<p>The Audit log may be implemented as a reusable application.</p>
+<p>Django middleware will be used for customer subdomains and possibly for
+user authorization (validating customer and role).</p>
+<p>The application will be integrated with standard Django user and authentication
+modules and it will also be deployable inside a Pinax website.</p>
+<p>It will also integrate with Satchmo for billing.</p>
 </div>
 <div class="section" id="busines-entities">
 <h2>Busines entities<a class="headerlink" href="#busines-entities" title="Permalink to this headline">¶</a></h2>
-<p>TODO: Complete business entity definition.</p>
 <dl class="docutils">
+<dt>Audit log</dt>
+<dd>Log of operations for security, monitoring and auditing.</dd>
+<dt>Customer</dt>
+<dd>A person or organization that has subscribed to services.</dd>
+<dt>Resource</dt>
+<dd>An element used by the services, like processing time, storage space,
+communication bandwidth, user accounts.</dd>
+<dt>Role</dt>
+<dd>The condition in what the user uses the services. For instance, as a
+sales representative, an office clerk or an account administrator.</dd>
+<dt>Service</dt>
+<dd>An individual feature available to customers, like image hosting or
+record keeping.</dd>
 <dt>Service plan</dt>
 <dd>A collection of services with associated service levels (usually resource
 limits) and pricing. A plan can be fundamental or additional. Additional
 service plans can be added to selected fundamental service plans to add
 services or increase service levels. Pricing may be free, periodic or
 one-time.</dd>
-<dt>Service</dt>
-<dd>An individual feature available to customers, like image hosting or
-record keeping.</dd>
-<dt>Resource</dt>
-<dd>An element used by the services, like processing time, storage space,
-communication bandwidth, user accounts.</dd>
 <dt>Subscription</dt>
 <dd>An assignment of a service plan to a customer. Can have a trial or grace
 period.</dd>
-<dt>Role</dt>
-<dd>The condition in what the user uses the services. For instance, as a
-sales representative or an office clerk.</dd>
+<dt>User profile</dt>
+<dd>Details about a user, in addition to basic user information.</dd>
 </dl>
 </div>
 </div>
