@@ -111,7 +111,7 @@ Characteristics
 
 * Security, at all levels, shall be treated as a concept of paramount
   importance.
-* Any operation with security implications, related to customer account,
+* Any operation with security implications, related to customer accounts,
   service plans, user accounts, permissions and similar entities will be
   recorded with extensive details in an audit log and the people involved
   will be notified.

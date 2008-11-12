@@ -31,7 +31,7 @@ Service
 
 Resource
     An element used by the services, like processing time, storage space,
-    communication bandwidth.
+    communication bandwidth, user accounts.
 
 Subscription
     An assignment of a service plan to a customer. Can have a trial or grace
