@@ -9,6 +9,7 @@ Django SaaS documentation
    :maxdepth: 2
 
    introduction
+   releases
    requirements
    design
 

@@ -20,7 +20,7 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="top" title="Django SaaS v2008.0.01 documentation" href="index.html" />
     <link rel="next" title="Design" href="design.html" />
-    <link rel="prev" title="Introduction" href="introduction.html" />
+    <link rel="prev" title="Releases" href="releases.html" />
   </head>
   <body>
     <div class="related">
@@ -36,7 +36,7 @@
           <a href="design.html" title="Design"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="introduction.html" title="Introduction"
+          <a href="releases.html" title="Releases"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">Django SaaS v2008.0.01 documentation</a> &raquo;</li>
       </ul>
@@ -49,23 +49,118 @@
   
   <div class="section" id="requirements">
 <h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="actors">
+<h2>Actors<a class="headerlink" href="#actors" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Account administrator</dt>
+<dd>One or more persons that have the authority to manage the relationship
+between the customer and the service provider. They select services and
+answer for the payments. They can also authorize other people to use the
+services that were contracted by the customer.</dd>
+<dt>Account user</dt>
+<dd>Also referred to as just &#8220;user&#8221;, is a person authorized to use the services
+contracted by the customer, within the limits of their roles. An account
+administrator is also an account user.</dd>
+<dt>Customer</dt>
+<dd>Also referred to as &#8220;customer account&#8221; or just &#8220;account&#8221;, is an
+organization or a person that has contracted the services that are offered
+by the Web application.</dd>
+<dt>Service administrator</dt>
+<dd>Is a representative of the service provider that manages the services that
+are offered by the Web application.</dd>
+<dt>Service provider</dt>
+<dd>Is the organization that offers services through the hosted Web
+application.</dd>
+</dl>
+</div>
 <div class="section" id="use-cases">
 <h2>Use Cases<a class="headerlink" href="#use-cases" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="service-administration">
+<h3>Service administration<a class="headerlink" href="#service-administration" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
+<dt>Define service plans</dt>
+<dd>The service administrator defines the services, resources and service plans
+that are offered.</dd>
 <dt>Manage customer accounts</dt>
-<dd>description</dd>
-<dt>Provide account subdomains</dt>
-<dd>description</dd>
+<dd>The application shows the service administrator a list of customer
+accounts. The administrador can add, edit or disable customer accounts and
+change service plans. He can also change billing options and add billing
+instructions like additional charges or credit.</dd>
+<dt>Integrate with billing application</dt>
+<dd>The application sends to the billing application the list of billings to
+be processed. At a later time, the application receives from the billing
+application the results of the billing process (success, failure,
+payment received).</dd>
 </dl>
-<p>Define service plans</p>
 </div>
-<div class="section" id="out-of-scope">
-<h2>Out of scope<a class="headerlink" href="#out-of-scope" title="Permalink to this headline">¶</a></h2>
-<p>Bill customers</p>
+<div class="section" id="account-administration">
+<h3>Account administration<a class="headerlink" href="#account-administration" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Create new account</dt>
+<dd>The future account administrator selects a service plan and enters the
+basic information required to create a new customer account and his own
+user account. The application creates the accounts and directs the user
+to the setup procedure.</dd>
+<dt>Setup new account</dt>
+<dd>The application offers the user options and forms to prepare the newly
+created account for use. This may include selecting additional services,
+configuring application-specific objects and creating user accounts.</dd>
+<dt>Manage account</dt>
+<dd>The account administrator enters account information like customer
+name, subdomain, location, contact information and payment information.</dd>
+<dt>Manage users</dt>
+<dd>The application shows the account administrator a list of account users.
+The administrador can add, edit or disable user accounts and assign
+roles to users.</dd>
+<dt>Select service plans</dt>
+<dd>The account administrator selects a fundamental service plan and optionally
+one or more additional service plans. This represents a contract between
+the customer and the service provider. The application validates the change
+and updates the customer account with the selected service plans.</dd>
+</dl>
+</div>
+<div class="section" id="service-utilization">
+<h3>Service utilization<a class="headerlink" href="#service-utilization" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Provide account subdomains</dt>
+<dd>The user types in the browser a subdomain in the form customer.service.com.
+The application authenticates the user and provides the services for
+the specified customer.</dd>
+<dt>Edit user profile</dt>
+<dd>The user changes his profile information.</dd>
+<dt>Change password</dt>
+<dd>The user enters the old and the new passwords. The application updates
+his profile with the new password.</dd>
+<dt>Enforce service levels</dt>
+<dd>When the user request service operations that need to consume or allocate
+metered resources, the application verifies if the request can be granted
+within the service levels that were contracted and payed for by the
+customer. In case they exceed limits, the application may block the
+operation or allow some grace period or excess margin.</dd>
+<dt>Enforce permissions</dt>
+<dd>When the user request service operations, the application verifies if his
+roles grant permission and blocks the operation if they don&#8217;t.</dd>
+</dl>
+</div>
 </div>
 <div class="section" id="characteristics">
 <h2>Characteristics<a class="headerlink" href="#characteristics" title="Permalink to this headline">¶</a></h2>
-<p>TODO: Document non-functional requirements.</p>
+<ul class="simple">
+<li>Security, at all levels, shall be treated as a concept of paramount
+importance.</li>
+<li>Any operation with security implications, related to customer account,
+service plans, user accounts, permissions and similar entities will be
+recorded with extensive details in an audit log and the people involved
+will be notified.</li>
+<li>All attempts to execute operations beyond security permissions must be
+recorded and notified.</li>
+<li>No object in this application domain can ever be deleted, just disabled.
+This does not necessarily applies to objects of other applications that
+use Django SaaS.</li>
+<li>The application must support internationalization and localization.</li>
+<li>Data owned by each customer must be separated in a way that each account user
+only has access to data of the customer he belongs to.</li>
+</ul>
 </div>
 </div>
 
@@ -78,15 +173,20 @@
             <h3>Table Of Contents</h3>
             <ul>
 <li><a class="reference" href="">Requirements</a><ul>
-<li><a class="reference" href="#use-cases">Use Cases</a></li>
-<li><a class="reference" href="#out-of-scope">Out of scope</a></li>
+<li><a class="reference" href="#actors">Actors</a></li>
+<li><a class="reference" href="#use-cases">Use Cases</a><ul>
+<li><a class="reference" href="#service-administration">Service administration</a></li>
+<li><a class="reference" href="#account-administration">Account administration</a></li>
+<li><a class="reference" href="#service-utilization">Service utilization</a></li>
+</ul>
+</li>
 <li><a class="reference" href="#characteristics">Characteristics</a></li>
 </ul>
 </li>
 </ul>
 
             <h4>Previous topic</h4>
-            <p class="topless"><a href="introduction.html" title="previous chapter">Introduction</a></p>
+            <p class="topless"><a href="releases.html" title="previous chapter">Releases</a></p>
             <h4>Next topic</h4>
             <p class="topless"><a href="design.html" title="next chapter">Design</a></p>
             <h3>Quick search</h3>
@@ -112,7 +212,7 @@
           <a href="design.html" title="Design"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="introduction.html" title="Introduction"
+          <a href="releases.html" title="Releases"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">Django SaaS v2008.0.01 documentation</a> &raquo;</li>
       </ul>

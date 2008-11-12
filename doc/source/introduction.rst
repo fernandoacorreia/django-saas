@@ -1,3 +1,4 @@
+============
 Introduction
 ============
 
@@ -7,14 +8,30 @@ provides basic functionality for a subscription-driven website.
 .. _Django SaaS: http://django-saas.info/
 
 Objectives
-----------
+==========
 
-* Offer services to multiple customers in contained way so each customer only
-  has access to its own data.
-* Allow for the selection of a service plan among several options.
-* Enforce service levels according to the selected plan (for instance,
-  limiting the ammount of resources that can be used).
-* Manage security, allowing many users per customer.
-* Allow account management by the customer account administrators and by the
-  service administrators.
-* Integrate with a billing application.
+Django SaaS aims to provide building blocks that can be used to accelerate the
+implementation of software-as-a-service Web applications.
+
+The application capabilities can be leveraged and customized to meet business
+needs such as service subscriptions, service level enforcement, service access,
+security, billing and business metrics.
+
+Features
+========
+
+Released
+--------
+
+* None yet.
+
+Planned
+-------
+
+* Service plans with different service levels and pricing.
+* Customer accounts with data separation.
+* Service subscription.
+* Subdomains for accounts (customer.service.com).
+* Multiple users for customer account.
+* Role-based security.
+* Integration with billing application.
