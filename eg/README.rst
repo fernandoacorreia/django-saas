@@ -47,7 +47,7 @@ downloaded Pinax. Also, change ADMINS and CONTACT_EMAIL to your own data.
 Database
 --------
 
-By default a sqlite3 database named dev.db will be created on the current
+By default a sqlite3 database named dev.db will be created in the current
 directory. Just create it, create an administrator user when asked, and after
 that start the server::
 
