@@ -55,7 +55,7 @@ MEDIA_URL = '/site_media/'
 ADMIN_MEDIA_PREFIX = '/media/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'bk-e2zv3humar79nm=j*bwc=-ymeit(8a20whp3goq4dh71t)s'
+SECRET_KEY = 'bk-e2zv3hu*(&#$(*nm=j*bwc=-ymeit(8aasfd0ssd3goq4dh71t)s'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -73,7 +73,7 @@ MIDDLEWARE_CLASSES = (
     'pagination.middleware.PaginationMiddleware',
 )
 
-ROOT_URLCONF = 'basic_project.urls'
+ROOT_URLCONF = 'eg.urls'
 
 TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(__file__), "templates"),
@@ -85,7 +85,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
     "django.core.context_processors.request",
-    
+
     "notification.context_processors.notification",
     "announcements.context_processors.site_wide_announcements",
     "account.context_processors.openid",
@@ -101,7 +101,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.humanize',
-    
+
     # external
     'notification', # must be first
     'emailconfirmation',
@@ -112,16 +112,15 @@ INSTALLED_APPS = (
     'pagination',
     'timezones',
     'ajax_validation',
-    
+
     # internal (for now)
     'basic_profiles',
     'account',
     'misc',
-    
-    'about',
-    
-    'django.contrib.admin',
 
+    'about',
+
+    'django.contrib.admin',
 )
 
 ABSOLUTE_URL_OVERRIDES = {
@@ -134,7 +133,7 @@ NOTIFICATION_LANGUAGE_MODULE = 'account.Account'
 EMAIL_CONFIRMATION_DAYS = 2
 EMAIL_DEBUG = DEBUG
 CONTACT_EMAIL = "feedback@example.com"
-SITE_NAME = "Pinax"
+SITE_NAME = "Django SaaS Example"
 LOGIN_URL = "/account/login"
 LOGIN_REDIRECT_URLNAME = "what_next"
 
