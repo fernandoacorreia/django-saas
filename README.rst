@@ -1,20 +1,3 @@
-Django SaaS Project
-===================
+THIS PROJECT WAS NOT IMPLEMENTED AND HAS BEEN DISCONTINUED.
 
-Reusable Django_ application for hosted services.
-
-Website: django-saas.info_
-
-.. _Django: http://www.djangoproject.com/
-.. _django-saas.info: http://django-saas.info/
-
-Contents
---------
-- *LICENSE*: Open source BSD_ license.
-- *doc*: Project documentation.
-- *eg*: Example website.
-- *lib*: Libraries used.
-- *src*: Application source code.
-- *web*: Project website.
-
-.. _BSD: http://www.opensource.org/licenses/bsd-license.php
+The requirements in the doc folder might be useful to someone that needs to implement billing for software as a service.
